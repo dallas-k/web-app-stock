@@ -1,0 +1,45 @@
+@import url('reset.css');
+
+/* header menu */
+.header_menu {
+    display:flex;
+    justify-content: space-between;
+}
+
+/* menu tab */
+.menu_tab {display:none;}
+
+/*category btn*/
+.category_btn{
+    text-align:center;
+}
+.category_btn button {
+    width:18%;
+    font-size:1.2rem;
+}
+
+/*align btn*/
+.align_btn > ul {
+    display:flex;
+    justify-content:space-around;
+}
+.align_btn > ul > li {
+    width:30%;
+}
+.align_updown {display:none;}
+
+/* stock-list */
+.stock-list {font-size:0.5rem;}
+
+/* 미완 */
+/* add-list */
+.add-list {
+    font-size:1rem;
+    width:10%;
+}
+.modal-body .table th{
+    width:10%;
+}
+.modal-body .table tr td {
+    width:10%;
+}
