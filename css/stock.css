@@ -1,28 +1,5 @@
 @import url('reset.css');
 
-/* header menu */
-.header_menu {
-    display:flex;
-    justify-content: space-between;
-}
-
-/* menu tab */
-.menu_tab {
-    display:none;
-    position:fixed;
-    width:30%;
-    height:80vh;
-    opacity:0.8;
-}
-.menu_tab ul {
-    margin-top:10%;
-}
-.menu_tab li {
-    text-align:center;
-    color: white;
-    padding:5% 0;
-}
-
 /*category btn*/
 .category_btn{
     text-align:center;

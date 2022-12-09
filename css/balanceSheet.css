@@ -1,0 +1,28 @@
+@import url('reset.css');
+
+/* description */
+#desc_p {
+    text-align:center;
+}
+
+/* balance-sheet */
+.table-legend {
+    position:relative;
+}
+.table-legend i{
+    position:absolute;
+    top:-15%;
+    cursor:pointer;
+}
+
+
+
+
+
+/* balance-list */
+.balance-list {
+    font-size:0.8rem;
+}
+.balance-list .col-auto {
+    text-align:center;
+}

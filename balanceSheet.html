@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/balanceSheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $('#menu_tab_btn').on('click', () => {
+                $('.menu_tab').animate({width:'toggle'},400);
+                $('#main').on('click',() => {
+                    $('.menu_tab').css({display : 'none'});
+                })
+            })
+            
+        })
+    </script>
+    <title>내 돈 관리</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header" id="header">
+            <h1>재무제표 관리</h1>
+            <div class="header_menu">
+                <i id='menu_tab_btn' class="bi bi-list fs-4"></i>
+                <p>S&P 1555 (+0.00) 0.0%</p>
+                <p>달러 1322 (+0.00) 0.0%</p>
+            </div>
+            <div class="menu_tab bg-secondary">
+                <ul>
+                    <li><a>주식 관리</a></li>
+                    <li><a>포트폴리오</a></li>
+                    <li><a>재무제표</a></li>
+                    <li><a>주요경제 지표</a></li>
+                </ul>
+            </div>
+        </header>
+        <main class="main" id="main">
+            <div id='desc_p' class="mb-3">
+                <p>? 아이콘을 누르면 각 항목에 대한 설명이 나옵니다</p>
+            </div>
+            <div class="row">
+                <div class="asset col-sm-6">
+                    <table class="table table-success table-striped">
+                        <legend class="table-legend">자산<span onclick="desc(0)"><i id='desc_asset' class="bi bi-question-circle fs-5"></i></span></legend>
+                        <tr>
+                            <th>자산명</th>
+                            <td>이름</td>
+                            <td>가격</td>
+                        </tr>
+                        <tr>
+                            <th>자산명</th>
+                            <td>이름</td>
+                            <td>가격</td>
+                        </tr>
+                    </table>
+                    <div><p>총계 : </p></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="debt">
+                        <table class="table table-light table-striped mb-sm-4">
+                            <legend class="table-legend">부채<span onclick="desc(1)"><i id='desc_debt' class="bi bi-question-circle fs-5"></i></span></legend>
+                            <tr>
+                                <th>자산명</th>
+                                <td>이름</td>
+                                <td>가격</td>
+                            </tr>
+                            <tr>
+                                <th>자산명</th>
+                                <td>이름</td>
+                                <td>가격</td>
+                            </tr>
+                        </table class="table-legend">
+                        <div><p>총계 : </p></div>
+                    </div>
+                    <div class="capital">
+                        <table class="table table-light table-striped">
+                            <legend class="table-legend">자본<span onclick="desc(2)"><i id='desc_capital' class="bi bi-question-circle fs-5"></i></span></legend>
+                            <tr>
+                                <th>자산명</th>
+                                <td>이름</td>
+                                <td>가격</td>
+                            </tr>
+                            <tr>
+                                <th>자산명</th>
+                                <td>이름</td>
+                                <td>가격</td>
+                            </tr>
+                        </table>
+                        <div><p>총계 : </p></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-dark" data-bs-toggle='modal' data-bs-target='#addModal'>
+                <i class="bi bi-patch-plus"></i>
+                재무제표 관리
+            </button>
+            <button class="btn btn-dark" data-bs-toggle='modal' data-bs-target='#addModa2'>
+                <i class="bi bi-patch-plus"></i>
+                재무건전성 조회
+            </button>
+        </main>
+    </div>
+    <div class="modal fade" tabindex="-1" id="addModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">재무제표 관리</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            
+                <form action="form/addStock.php" method="get">
+                    <div class="modal-body">
+                        <table class="balance-list table">
+                            <tr>
+                                <th class="col-auto"><label class='form-label' for="">날짜</label></th>
+                                <th class="col-auto"><label class='form-label' for="">종목명</label></th>
+                                <th class="col-auto"><label class='form-label' for="">매입가</label></th>
+                                <th class="col-auto"><label class='form-label' for="">수량</label></th>
+                                <th class="col-auto"><label class='form-label' for="">카테고리</label></th>
+                            </tr>
+            
+                            <tr>
+                                <td><input class='form-control form-control-sm' type="text" name="date"></td>
+                                <td><input class='form-control form-control-sm' type="text" name="name"></td>
+                                <td><input class='form-control form-control-sm' type="text" name="price"></td>
+                                <td><input class='form-control form-control-sm' type="text" name="count"></td>
+                                <td><select class='form-select form-select-sm' name="category">
+                                        <option value="kor_stock">국내주식</option>
+                                        <option value="for_stock">해외주식</option>
+                                        <option value="bond">채권ETF</option>
+                                        <option value="real">실물ETF</option>
+                                    </select>
+                                </td>
+                            </tr>
+            
+                        </table>
+                    </div>
+            
+                    <div class="modal-footer">
+                        <button class="btn btn-dark"><i class="bi bi-patch-plus"></i>행 추가</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" id="addModa2">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">재무건전성 조회</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            
+                <form action="form/addStock.php" method="get">
+                    <div class="modal-body">
+                        <table class="balance-list table">
+                            <tr>
+                                <th class="col-auto"><label class='form-label' for="">날짜</label></th>
+                                <th class="col-auto"><label class='form-label' for="">종목명</label></th>
+                                <th class="col-auto"><label class='form-label' for="">매입가</label></th>
+                                <th class="col-auto"><label class='form-label' for="">수량</label></th>
+                                <th class="col-auto"><label class='form-label' for="">카테고리</label></th>
+                            </tr>
+            
+                            <tr>
+                                <td><input class='form-control form-control-sm' type="text" name="date"></td>
+                                <td><input class='form-control form-control-sm' type="text" name="name"></td>
+                                <td><input class='form-control form-control-sm' type="text" name="price"></td>
+                                <td><input class='form-control form-control-sm' type="text" name="count"></td>
+                                <td><select class='form-select form-select-sm' name="category">
+                                        <option value="kor_stock">국내주식</option>
+                                        <option value="for_stock">해외주식</option>
+                                        <option value="bond">채권ETF</option>
+                                        <option value="real">실물ETF</option>
+                                    </select>
+                                </td>
+                            </tr>
+            
+                        </table>
+                    </div>
+            
+                    <div class="modal-footer">
+                        <button class="btn btn-dark"><i class="bi bi-patch-plus"></i>행 추가</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function desc(id){
+            let asset = '<b>자산</b> : 유무형의 가치가 있는 재산들을 의미하며, 특히 현재 혹은 미래에 수익을 가져다 줄 가능성이 높은 유가치물';
+            let debt = '<b>부채</b> : 남에게 갚아야 할 물건이나 노동력 등을 의미하며, 타인자본이라고도 말한다'
+            let capital = '<b>자본</b> : 부채와 대조되는 개념으로, 재무제표의 총 자산에서 총 부채액을 뺀 금액이다, 자기자본이라고도 말한다.'
+            if (id === 0){
+                document.getElementById('desc_p').innerHTML = asset;
+            } else if (id === 1){
+                document.getElementById('desc_p').innerHTML = debt;
+            } else if (id === 2){
+                document.getElementById('desc_p').innerHTML = capital;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

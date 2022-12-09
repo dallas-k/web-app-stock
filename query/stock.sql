@@ -1,0 +1,8 @@
+CREATE TABLE stock (
+    idx INT PRIMARY KEY AUTO_INCREMENT,
+    reg DATE NOT NULL,
+    stock VARCHAR(16) NOT NULL,
+    price INT NOT NULL,
+    num INT NOT NULL,
+    category VARCHAR(4) NOT NULL
+);
