@@ -21,6 +21,10 @@
 
 /* stock-list */
 .stock-list {font-size:0.8rem;}
+.stock-list th, td {text-align:center;}
+.stock-list .btn {font-size:0.6rem; padding-top:0; padding-bottom:0;}
+.num_change span{display:block; text-align:center;}
+.num_minus {cursor:pointer;}
 
 /* add-list */
 .add-list {

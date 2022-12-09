@@ -1,0 +1,37 @@
+{
+    "0" : [ {
+        "idx" : 1,
+        "date":"12/09",
+        "name":"aaa",
+        "price":"80000",
+        "num":1,
+        "category":"domestic" } ],
+    "1" : [ {
+        "idx" : 2,
+        "date":"12/10",
+        "name":"bbbbb",
+        "price":"75000",
+        "num":2,
+        "category":"domestic" } ],
+    "2" : [ {
+        "idx" : 3,
+        "date":"12/11",
+        "name":"ccccccccc",
+        "price":"5000",
+        "num":3,
+        "category":"foreign" } ],
+    "3" : [ {
+        "idx" : 4,
+        "date":"12/12",
+        "name":"zzzz",
+        "price":"7005000",
+        "num":4,
+        "category":"bond" } ],
+    "4" : [ {
+        "idx" : 5,
+        "date":"12/13",
+        "name":"fffff",
+        "price":"100",
+        "num":5,
+        "category":"real" } ]
+}

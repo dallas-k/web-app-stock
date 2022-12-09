@@ -1,0 +1,17 @@
+@import url('reset.css');
+
+.row {
+    margin-top:10%;
+}
+
+.menu_btn p{
+    width:80%;
+    text-align: center;
+}
+.menu_btn .btn {
+    width:80%;
+    height:20vh;
+}
+.menu_btn .btn i{
+    font-size:4rem;
+}

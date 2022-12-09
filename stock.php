@@ -12,18 +12,19 @@
         $(function(){
             $('#menu_tab_btn').on('click', () => {
                 $('.menu_tab').animate({width:'toggle'},400);
+                $('.menu_tab li').toggle();
                 $('#main').on('click',() => {
                     $('.menu_tab').css({display : 'none'});
-                })
-            })
-        })
+                    $('.menu_tab li').css({display : 'none'})
+                })}
+        )})
     </script>
-    <title>내 돈 관리</title>
+    <title>주재파악</title>
 </head>
 <body>
     <div class="container">
         <header class="header" id="header">
-            <h1>주식 관리</h1>
+            <h1 class="hidden">주재파악</h1>
             <div class="header_menu">
                 <i id='menu_tab_btn' class="bi bi-list fs-4"></i>
                 <p>S&P 1555 (+0.00) 0.0%</p>
@@ -80,14 +81,36 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                <?php
+                // Local JSON 파일 읽어오기
+
+                $url ='stock.json';
+
+                if(!file_exists($url)) {
+                    echo '파일이 없습니다.';
+                    exit;
+                }
+
+                $json_string = file_get_contents($url);
+                $R = json_decode($json_string, true);
+                // json_decode : JSON 문자열을 PHP 배열로 바꾼다
+                // json_decode 함수의 두번째 인자를 true 로 설정하면 무조건 array로 변환된다.
+                // $R : array data
+
+                // 자료 파싱처리
+                for ($i = 0; $i < count($R); $i++){
+                    foreach($R[$i] as $key => $value){
+                ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class='col-2'><?php echo $value['date']?></td>
+                        <td class='col-2'><?php echo $value['name']?></td>
+                        <td class='col-2'><?php echo $value['price']?></td>
+                        <td class='col-2'><?php echo $value['num']?></td>
+                        <td class='col-2'><?php echo $value['price']*$value['num']?></td>
+                        <td class='col-2 num_change'><button class='btn btn-danger' onclick="changeNum(this.parentNode,<?php echo $value['idx']?>, <?php echo $value['num']?>)">수정</button></td>
                     </tr>
+                <?php }}?>
                 </tbody>
             </table>
             <button class="btn btn-dark" data-bs-toggle='modal' data-bs-target='#addModal'>
@@ -141,5 +164,10 @@
             </div>
         </div>
     </div>
+    <script>
+        function changeNum(node, idx, num){
+            node.innerHTML = `<span><i class="bi bi-dash-circle num_minus"></i> ${num}</span>`
+        }
+    </script>
 </body>
 </html>

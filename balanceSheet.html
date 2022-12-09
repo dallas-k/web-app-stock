@@ -12,19 +12,19 @@
         $(function(){
             $('#menu_tab_btn').on('click', () => {
                 $('.menu_tab').animate({width:'toggle'},400);
+                $('.menu_tab li').toggle();
                 $('#main').on('click',() => {
                     $('.menu_tab').css({display : 'none'});
-                })
-            })
-            
-        })
+                    $('.menu_tab li').css({display : 'none'})
+                })}
+        )})
     </script>
-    <title>내 돈 관리</title>
+    <title>주재파악</title>
 </head>
 <body>
     <div class="container">
         <header class="header" id="header">
-            <h1>재무제표 관리</h1>
+            <h1 class="hidden">주재파악</h1>
             <div class="header_menu">
                 <i id='menu_tab_btn' class="bi bi-list fs-4"></i>
                 <p>S&P 1555 (+0.00) 0.0%</p>

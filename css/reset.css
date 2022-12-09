@@ -4,7 +4,7 @@
 h1, h2, h3, table, td, th, tr, li, ol, ul, form, input, button {box-sizing:border-box;}
 h1, h2, p, div, span {padding:0; margin:0;}
 li, ul, ol {list-style: none; margin:0; padding:0;}
-a {text-decoration: none;}
+a {text-decoration: none; color:black;}
 
 .hidden {
     display:none;
@@ -14,8 +14,10 @@ a {text-decoration: none;}
 /* header */
 /* header menu */
 .header_menu {
+    height:6vh;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* menu tab */
@@ -30,10 +32,33 @@ a {text-decoration: none;}
     margin-top:10%;
 }
 .menu_tab li {
+    display:none;
     text-align:center;
     color: white;
     padding:5% 0;
 }
 #menu_tab_btn {
     cursor:pointer;
+}
+
+/* footer */
+.footer_menu {
+    display: flex;
+}
+.footer_menu li {
+    width:25%;
+    text-align:center;
+}
+.footer_menu a{
+    display:block;
+    text-align:center;
+}
+.footer_menu li:hover{
+    background-color:#999;
+}
+.footer_menu a:hover{
+    color:white;
+}
+.footer_menu a i{
+    font-size:2rem;
 }
