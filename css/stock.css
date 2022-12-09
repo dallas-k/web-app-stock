@@ -7,7 +7,21 @@
 }
 
 /* menu tab */
-.menu_tab {display:none;}
+.menu_tab {
+    display:none;
+    position:fixed;
+    width:30%;
+    height:80vh;
+    opacity:0.8;
+}
+.menu_tab ul {
+    margin-top:10%;
+}
+.menu_tab li {
+    text-align:center;
+    color: white;
+    padding:5% 0;
+}
 
 /*category btn*/
 .category_btn{
@@ -29,17 +43,12 @@
 .align_updown {display:none;}
 
 /* stock-list */
-.stock-list {font-size:0.5rem;}
+.stock-list {font-size:0.8rem;}
 
-/* 미완 */
 /* add-list */
 .add-list {
-    font-size:1rem;
-    width:10%;
+    font-size:0.8rem;
 }
-.modal-body .table th{
-    width:10%;
-}
-.modal-body .table tr td {
-    width:10%;
+.add-list .col-auto {
+    text-align:center;
 }
