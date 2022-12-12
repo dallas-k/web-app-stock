@@ -1,0 +1,16 @@
+{
+    "name" : "주재파악",
+    "short_name" : "주재파악",
+    "description" : "개인의 주식 보유 현황, 재무제표 등을 한눈에 파악할 수 있는 프로그램",
+    "scope" : ".",
+    "start_url" : "./",
+    "display" : "fullscreen",
+    "orientation" : "portrait",
+    "theme-color" : "#fd7e14",
+    "background-color" : "#ffffff",
+    "icons" : [ {
+        "src": "images/touch/homescreen48.png",
+        "sizes": "48x48",
+        "type": "image/png"
+    }]
+}
