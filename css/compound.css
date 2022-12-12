@@ -1,5 +1,9 @@
 @import url('reset.css');
 
+.col-md-6 h2{
+    display: none;
+}
+
 .select_btn {
     background: #ccc;
 }
@@ -8,12 +12,36 @@
     width:30%;
     text-align:center;
 }
+.installment div input {
+    width:40%;
+}
 
 #i_result {display:none;}
 
-
+.calc{
+    margin-top:5%;
+    width:100%;
+    text-align: center;
+}
+.col-md-6 label {
+    font-size:0.8rem;
+}
 
 .accumulate {
     display:none;
 }
+.accumulate div label {
+    width:30%;
+    text-align:center;
+}
+.accumulate div input {
+    width:40%;
+}
+#a_result {display:none;}
 
+
+@media screen and (min-width:767px) {
+    .col-md-6 h2 {display:block;}
+    .select_btn {display:none;}
+    .accumulate {display: block;}
+}
