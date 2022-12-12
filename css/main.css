@@ -12,6 +12,10 @@
     width:80%;
     height:20vh;
 }
+.menu_btn .btn:hover {
+    background-color:#999;
+    color:#fff;
+}
 .menu_btn .btn i{
     font-size:4rem;
 }

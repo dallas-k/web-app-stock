@@ -2,13 +2,13 @@ const sCacheName = 'temp';
 const aFilesToCache = [
     './',
     './index.html',
+    './manifest.json',
     './stock.php',
-    './balanceSheet.html',
-    './manifest.json'
+    './balanceSheet.html'
 ];
 
 self.addEventListener('install', pEvent => {
-    console.log('Service Worker Loaded');
+    console.log('Service Worker Installed');
     pEvent.waitUntil(
         caches.open(sCacheName)
         .then(pCache => {

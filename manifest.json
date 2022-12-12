@@ -6,11 +6,16 @@
     "start_url" : "./",
     "display" : "fullscreen",
     "orientation" : "portrait",
-    "theme-color" : "#fd7e14",
-    "background-color" : "#ffffff",
+    "theme_color" : "#fd7e14",
+    "background_color" : "#ffffff",
     "icons" : [ {
-        "src": "images/touch/homescreen48.png",
+        "src": "images/touch/gold-48.png",
         "sizes": "48x48",
+        "type": "image/png"
+    },
+    {
+        "src": "images/gold-512.png",
+        "sizes": "512x512",
         "type": "image/png"
     }]
 }

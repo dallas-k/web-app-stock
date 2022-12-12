@@ -1,0 +1,19 @@
+@import url('reset.css');
+
+.select_btn {
+    background: #ccc;
+}
+
+.installment div label {
+    width:30%;
+    text-align:center;
+}
+
+#i_result {display:none;}
+
+
+
+.accumulate {
+    display:none;
+}
+

@@ -106,9 +106,9 @@
                         <td class='col-2'><?php echo $value['date']?></td>
                         <td class='col-2'><?php echo $value['name']?></td>
                         <td class='col-2'><?php echo $value['price']?></td>
-                        <td class='col-2'><?php echo $value['num']?></td>
+                        <td class='col-1'><?php echo $value['num']?></td>
                         <td class='col-2'><?php echo $value['price']*$value['num']?></td>
-                        <td class='col-2 num_change'><button class='btn btn-danger' onclick="changeNum(this.parentNode,<?php echo $value['idx']?>, <?php echo $value['num']?>)">수정</button></td>
+                        <td class='col-3 num_change'><button class='btn btn-danger' onclick="changeNum(this.parentNode,<?php echo $value['idx']?>, <?php echo $value['num']?>)">수정</button></td>
                     </tr>
                 <?php }}?>
                 </tbody>
@@ -166,7 +166,14 @@
     </div>
     <script>
         function changeNum(node, idx, num){
-            node.innerHTML = `<span><i class="bi bi-dash-circle num_minus"></i> ${num}</span>`
+            node.innerHTML = `<span><i onclick='numMinus(${node},${num})' class="bi bi-dash-circle num_minus"></i> ${num} <button onclick='submitNum(${node}, ${idx}, ${num})' class='btn btn-danger' style='font-size:0.5rem'>적용</button></span>`;
+            console.log(node);
+        }
+        function numMinus(node, num){
+            
+        }
+        function submitNum(){
+            
         }
     </script>
 </body>
