@@ -1,16 +1,44 @@
 @import url('reset.css');
 
-.row {
-    margin-top:10%;
+/* quote */
+blockquote{
+    width:60%;
+    margin:auto;
+    margin-top:5%;
+    position:relative;
+}
+.quote {
+    font-size:2rem;
+    font-style: italic;
+    position:relative;
+}
+.quote_by {
+    position:relative;
+    right:0%;
+    font-size:1.2rem;
 }
 
+/* menu_tab */
+.col-md-6 {
+    text-align:center;
+}
+
+.main .row {
+    margin-top:5%;
+}
+.menu_btn {
+    height:20vh;
+}
 .menu_btn p{
     width:80%;
-    text-align: center;
+    margin:auto;
+    margin-top:5%;
+    font-size:1.2rem;
 }
 .menu_btn .btn {
     width:80%;
-    height:20vh;
+    border: none;
+    font-size:1.5rem;
 }
 .menu_btn .btn:hover {
     background-color:#999;

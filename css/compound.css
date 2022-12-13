@@ -1,12 +1,30 @@
 @import url('reset.css');
 
+.btn-light{
+    background-color:#ddd;
+}
+
+/* common */
 .col-md-6 h2{
     display: none;
 }
+.col-md-6 label {
+    font-size:0.8rem;
+}
+.calc{
+    margin-top:5%;
+    width:100%;
+    text-align: center;
+}
+select, option {
+    font-size:1.2rem;
+}
 
+/* 거치식 */
 .installment div label {
     width:30%;
     text-align:center;
+    font-size: 1.5rem;
 }
 .installment div input {
     width:40%;
@@ -14,28 +32,21 @@
 
 #i_result {display:none;}
 
-.calc{
-    margin-top:5%;
-    width:100%;
-    text-align: center;
-}
-.col-md-6 label {
-    font-size:0.8rem;
-}
-
+/* 적립식 */
 .accumulate div label {
     width:30%;
     text-align:center;
+    font-size:1.5rem;
 }
 .accumulate div input {
     width:40%;
 }
-#a_result {display:none;}
 
+#a_result {display:none;}
 
 @media screen and (min-width:767px) {
     .col-md-6 h2 {display:block;}
     .select_btn {display:none;}
-    .accumulate {display: block;}
-    .installment {display: block;}
+    .accumulate {display: block; text-indent: 0;}
+    .installment {display: block; text-indent: 0;}
 }

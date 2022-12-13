@@ -51,15 +51,16 @@
 </head>
 <body>
     <div class="container">
-        <header class="header" id="header">
+        <header class="header row" id="header">
             <h1 class="hidden">주재파악</h1>
-            <div class="header_menu">
+            <div class="header_menu bg-warning">
                 <i id='menu_tab_btn' class="bi bi-list fs-4"></i>
                 <p>S&P 1555 (+0.00) 0.0%</p>
                 <p>달러 1322 (+0.00) 0.0%</p>
             </div>
             <div class="menu_tab bg-secondary">
                 <ul>
+                    <li><a>홈</a></li>
                     <li><a>주식 관리</a></li>
                     <li><a>포트폴리오</a></li>
                     <li><a>재무제표</a></li>
@@ -70,14 +71,14 @@
         <main id="main" class="main mb-5">
             <button id='i_btn' class='select_btn btn btn-light'>거치식</button>
             <button id='a_btn' class='select_btn btn btn-light'>적립식</button>
-            <div class='row'>
+            <div class='row mt-5'>
                 <div class='installment col-md-6'>
-                    <h2>거치식</h2>
-                    <div>
+                    <h2 class="mb-4">거치식</h2>
+                    <div class="mb-4">
                         <label for="i_origin">투자원금</label>
                         <input type="text" name='i_origin' id='i_origin'>
                     </div>
-                    <div>
+                    <div class="mb-4">
                         <label for="i_range">계산기간</label>
                         <input type="text" name='i_range' id='i_range'>
                         <select name="i_option" id='i_option' onchange='changeVal(this, "i_rate", "none")'>
@@ -85,7 +86,7 @@
                             <option value="month">개월</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="mb-4">
                         <label for="i_get" id='i_rate' class='label_rate'>목표수익률(일)</label>
                         <input type="text" name='i_get' id='i_get'> %
                     </div>
@@ -102,7 +103,7 @@
                     </div>
                 </div>
                 <div class='accumulate col-md-6 hidden'>
-                    <h2>적립식</h2>
+                    <h2 class="mb-4">적립식</h2>
                     <div>
                         <label for="a_origin">투자원금</label>
                         <input type="text" name="a_origin" id="a_origin">
@@ -140,10 +141,10 @@
         <footer id='footer' class="footer">
             <div class="row">
                 <ul class="footer_menu bg-warning">
-                    <li><a href=""><div><i class="bi bi-bell"></i></div>알림</a></li>
-                    <li><a href=""><div><i class="bi bi-building"></i></div>My자산</a></li>
-                    <li><a href=""><div><i class="bi bi-piggy-bank"></i></div>복리 계산기</a></li>
-                    <li><a href=""><div><i class="bi bi-calculator"></i></div>대출 계산기</a></li>
+                    <li><a href=""><div class="mb-2"><i class="bi bi-bell"></i></div>알림</a></li>
+                    <li><a href=""><div class="mb-2"><i class="bi bi-building"></i></div>My자산</a></li>
+                    <li><a href="compound.html"><div class="mb-2"><i class="bi bi-piggy-bank"></i></div>복리 계산기</a></li>
+                    <li><a href=""><div class="mb-2"><i class="bi bi-calculator"></i></div>대출 계산기</a></li>
                 </ul>
             </div>
         </footer>
