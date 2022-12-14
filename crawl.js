@@ -15,20 +15,20 @@ const getHTML = async (url) => {
 
 const parsing = async (page) => {
     const $ = cheerio.load(page);
-    const courses = [];
     const $courseList = $(".market1");
 
     $courseList.each((idx,node) => {
-        const title = $(node).find('.h_1st:eq(0)').text();
-        console.log(title);
-        return title;
+        const title = $(node).find('.h_lst span:eq(0)').text();
+        const price = $(node).find('.head_info:eq(0) .value').text();
+        console.log(title, price);
     })
 }
 
 const getValue = async (url) => {
     const html = await getHTML(url);
-    const courses = await parsing(html);
-    console.log(courses);
+    const parse = await parsing(html);
+    console.log(parse);
+    return parse;
 }
 
 getValue(naverFinance);
