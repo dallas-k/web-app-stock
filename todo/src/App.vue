@@ -8,11 +8,18 @@
 </template>
 
 <script>
+import fs from 'fs';
+const dataBuffer = fs.readFile('./components/data/room.json')
+console.log(dataBuffer);
+
+// const dataJSON = dataBuffer.toString()
+// const data = JSON.parse(dataJSON)
+// console.log(data);
+
 import header from './components/TodoHeader.vue'
 import footer from './components/TodoFooter.vue'
 import list from './components/TodoList.vue'
 import input from './components/TodoInput.vue'
-import json from './components/data/room.json'
 
 export default {
   data() {
@@ -20,25 +27,16 @@ export default {
       todoItems : json
     }
   },
-  // created() {
-  //       if (localStorage.length > 0) {
-  //           for(let i = 0; i < localStorage.length; i++){
-  //             let item = JSON.parse(localStorage.key(i));
-  //             this.todoItems.push(item);
-  //           }
-  //       }
-  //   },
   methods : {
     addTodo(todoItem) {
-      localStorage.setItem(todoItem, todoItem);
+
     },
     clearAll(){
       localStorage.clear();
       this.todoItems = [];
     },
-    removeTodo(todoItem, index){
-      localStorage.removeItem(todoItem);
-      this.todoItems.splice(index, 1);
+    removeTodo(todoItem, id){
+
     }
   },
   components : {

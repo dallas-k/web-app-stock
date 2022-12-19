@@ -2,11 +2,12 @@
     <section>
         <transition-group name="list" tag="ul">
             <div v-for="(todoItem, index) in propsdata" :key='todoItem' class="shadow">
-                <span>{{todoItem.id}}</span>
-                <span>{{todoItem.title}}</span>
-                <span>{{todoItem.content}}</span>
+                <span>{{todoItem.name}}</span>
                 <span>{{todoItem.price}}</span>
-                <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+                <span>{{todoItem.count}}</span>
+                <span>{{todoItem.category}}</span>
+                <span>{{todoItem.date}}</span>
+                <span class="removeBtn" type="button" @click="removeTodo(todoItem, todoItem.id)">
                 <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
             </div>
@@ -20,22 +21,21 @@ export default {
         propsdata : Object
     },
     methods : {
-        removeTodo(todoItem, index) {
-            this.$emit('removeTodo', todoItem, index)
+        removeTodo(todoItem, id) {
+            this.$emit('removeTodo', todoItem, id)
         }
     }
 }
 </script>
 
 <style scoped>
-    ul {
-        list-style-type: none;
+    div {
         padding-left: 0px;
         margin-top: 0;
         text-align: left;
+        display:flex;
     }
-    li {
-        display: flex;
+    span {
         min-height: 50px;
         height:50px;
         line-height:50px;
@@ -43,6 +43,8 @@ export default {
         padding:0 0.9rem;
         background:white;
         border-radius:5px;
+        width:18%;
+        text-align:center;
     }
     .checkBtn{
         line-height:45px;
@@ -50,8 +52,9 @@ export default {
         margin-right: 5px;
     }
     .removeBtn{
-        margin-left: auto;
+        margin-right: auto;
         color:#de4343;
+        width:10%;
     }
     .list-enter-active, .list-leave-active{
         transition: all 1s;

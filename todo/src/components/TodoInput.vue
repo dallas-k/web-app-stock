@@ -10,7 +10,7 @@
             <div class="stock_val">
                 <p><input type="text" id="s_name" v-model="stock.name"></p>
                 <p><input type="text" id="s_price" v-model="stock.price"></p>
-                <p><input type="text" id="s_num" v-model="stock.num"></p>
+                <p><input type="text" id="s_num" v-model="stock.count"></p>
                 <p><select id="s_select" v-model="stock.category">
                     <option value="domestic" selected>국내주식</option>
                     <option value="foreign">해외주식</option>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+let i = 0;
+
 import Modal from './common/Modal.vue'
 
 export default {
@@ -39,9 +41,10 @@ export default {
     data() {
         return {
             stock : {
+                id : '',
                 name : '',
                 price : '',
-                num : '',
+                count : '',
                 category : 'domestic',
                 date : new Date().toLocaleDateString()
             },
@@ -51,6 +54,8 @@ export default {
     methods : {
         addTodo() {
             if (this.stock.price) {
+                this.stock.id = i;
+                i++;
                 let value = JSON.stringify(this.stock);
                 this.$emit('addTodo', value);
                 this.clearInput();
@@ -62,8 +67,8 @@ export default {
         clearInput() {
             this.stock.name = '';
             this.stock.price = '';
-            this.stock.num = '';
-            this.stock.category = 'foreign';
+            this.stock.count = '';
+            this.stock.category = 'domestic';
         }
     },
     components : {
