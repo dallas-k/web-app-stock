@@ -5,7 +5,7 @@
   "price": 50000,
   "count": 5,
   "category": "domestic",
-  "date" : ""
+  "date" : "2022-01-12"
   },
   {
     "id" : 1,
@@ -14,5 +14,13 @@
     "count": 5,
     "category": "domestic",
     "date" : ""
+  },
+  {
+    "id" : 2,
+    "name": "Sinrim",
+    "price": 50000,
+    "count": 5,
+    "category": "domestic",
+    "date" : "2022-01-12"
   }
 ]

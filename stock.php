@@ -1,3 +1,7 @@
+<?php
+    include dirname(__FILE__)."/db/dbconnect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -83,34 +87,22 @@
                 <tbody>
 
                 <?php
-                // Local JSON 파일 읽어오기
+                // DB
+                $query = 'SELECT * FROM stock;';
+                $fetch = mysqli_query($dbcon, $query);
 
-                $url ='stock.json';
-
-                if(!file_exists($url)) {
-                    echo '파일이 없습니다.';
-                    exit;
-                }
-
-                $json_string = file_get_contents($url);
-                $R = json_decode($json_string, true);
-                // json_decode : JSON 문자열을 PHP 배열로 바꾼다
-                // json_decode 함수의 두번째 인자를 true 로 설정하면 무조건 array로 변환된다.
-                // $R : array data
-
-                // 자료 파싱처리
-                for ($i = 0; $i < count($R); $i++){
-                    foreach($R[$i] as $key => $value){
+                // 자료 파싱
+                while($result = mysqli_fetch_array($fetch)){
                 ?>
                     <tr>
-                        <td class='col-2'><?php echo $value['date']?></td>
-                        <td class='col-2'><?php echo $value['name']?></td>
-                        <td class='col-2'><?php echo $value['price']?></td>
-                        <td class='col-1'><?php echo $value['num']?></td>
-                        <td class='col-2'><?php echo $value['price']*$value['num']?></td>
-                        <td class='col-3 num_change'><button class='btn btn-danger' onclick="changeNum(this.parentNode,<?php echo $value['idx']?>, <?php echo $value['num']?>)">수정</button></td>
+                        <td class='col-2'><?php echo $result['reg']?></td>
+                        <td class='col-2'><?php echo $result['name']?></td>
+                        <td class='col-2'><?php echo $result['price']?></td>
+                        <td class='col-1'><?php echo $result['count']?></td>
+                        <td class='col-2'><?php echo $result['price']*$result['count']?></td>
+                        <td class='col-3 num_change'><button class='btn btn-danger' onclick="changeNum(this.parentNode,<?php echo $result['idx']?>, <?php echo $result['count']?>)">수정</button></td>
                     </tr>
-                <?php }}?>
+                <?php }?>
                 </tbody>
             </table>
             <button class="btn btn-dark" data-bs-toggle='modal' data-bs-target='#addModal'>
@@ -166,11 +158,15 @@
     </div>
     <script>
         function changeNum(node, idx, num){
-            node.innerHTML = `<span><i onclick='numMinus(${node},${num})' class="bi bi-dash-circle num_minus"></i> ${num} <button onclick='submitNum(${node}, ${idx}, ${num})' class='btn btn-danger' style='font-size:0.5rem'>적용</button></span>`;
+            node.innerHTML = `<div style='display:flex; justify-content:space-around;'>
+                <i onclick='numMinus(this,${num})' class="bi bi-dash-circle num_minus"></i>
+                <span> ${num}</span>
+                <button onclick='submitNum(${idx}, ${num})' class='btn btn-danger' style='font-size:0.5rem'>적용</button>
+            </div>`;
             console.log(node);
         }
-        function numMinus(node, num){
-            
+        function numMinus(elmnt, num){
+            console.log(elmnt.parentNode.childNode('span'));
         }
         function submitNum(){
             

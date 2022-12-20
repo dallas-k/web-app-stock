@@ -8,10 +8,9 @@
 </template>
 
 <script>
-import fs from 'fs';
-const dataBuffer = fs.readFile('./components/data/room.json')
-console.log(dataBuffer);
-
+// import fs from 'fs';
+// const dataBuffer = fs.readFile('./components/data/room.json')
+// console.log(dataBuffer);
 // const dataJSON = dataBuffer.toString()
 // const data = JSON.parse(dataJSON)
 // console.log(data);
@@ -20,6 +19,7 @@ import header from './components/TodoHeader.vue'
 import footer from './components/TodoFooter.vue'
 import list from './components/TodoList.vue'
 import input from './components/TodoInput.vue'
+import json from './components/data/room.json'
 
 export default {
   data() {
