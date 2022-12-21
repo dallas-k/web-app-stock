@@ -60,6 +60,7 @@ header .row{
 .footer_menu {
     display: flex;
     padding:0px;
+    height:14vmin;
 }
 .footer_menu li {
     width:25%;
